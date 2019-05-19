@@ -1,7 +1,9 @@
+#!/bin/sh
+
 if [ -n "$1" ]; then
     branch="$1"
 else
-    branch=`git-latestrelease`
+    branch=$(git-latestrelease)
 fi
 
 git fetch origin "$branch:$branch"
