@@ -4,5 +4,5 @@ for b in `git branch --merged | grep -v \*`; do
     git branch -d $b
 done
 
-echo "pruning stale remote refs"
+echo "pruning stale remote refs..."
 git remote prune origin
