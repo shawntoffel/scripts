@@ -6,4 +6,4 @@ jobs:
 
     steps:
       - checkout
-      - run: find . -type f -name '*.sh' | xargs shellcheck --external-sources
+      - run: find . -type f -name '*.sh' | xargs shellcheck --external-sources -e 2016
