@@ -2,6 +2,6 @@
 
 submodule=${1%/}
 
+git submodule deinit -f "$submodule"
 git rm "$submodule"
 rm -rf ".git/modules/$submodule"
-git config -f ".git/config" --remove-section "submodule.$submodule"
