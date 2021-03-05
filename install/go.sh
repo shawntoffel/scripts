@@ -10,6 +10,9 @@ if [ -z "$version" ]; then
     echo "Latest version is $version"
 fi
 
+echo "Cleaning up existing install..."
+rm -rf /usr/local/go
+
 echo "Installing version $version..."
 wget -q "https://dl.google.com/go/$version.linux-amd64.tar.gz" -O - | tar -xz -C /usr/local 
 
