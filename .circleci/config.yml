@@ -1,9 +1,0 @@
-version: 2
-jobs:
-  build:
-    docker:
-      - image: koalaman/shellcheck-alpine:stable
-
-    steps:
-      - checkout
-      - run: find . -type f -name '*.sh' | xargs shellcheck --external-sources -e 2016
