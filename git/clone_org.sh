@@ -19,4 +19,7 @@ if [ -z "$access_token" ]
     exit 1
 fi
 
-curl -s https://api.github.com/orgs/"$organization"/repos?access_token="$access_token" | grep -e ssh_url | cut -d \" -f 4 | xargs -L1 git clone --recursive
+curl -s "https://api.github.com/orgs/$organization/repos" -H "Authorization: Bearer $access_token" | grep -e ssh_url | cut -d \" -f 4 | xargs -L1 git clone --recursive
+
+# Alternative with gh cli installed.
+# gh api "orgs/$organization/repos" --paginate --jq '.[].ssh_url' | xargs -L1 git clone --recursive
